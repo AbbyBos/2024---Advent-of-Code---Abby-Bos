@@ -4,7 +4,7 @@ right_list = []
 distances_list = []
 simularity_score_list = []
 
-def importfile (source):
+def importfile (source): ## Import file and output left and right list.
     with open(source, "r") as f:   
         lines = f.readlines()
         my_list = [line.strip() for line in lines]
@@ -15,23 +15,22 @@ def importfile (source):
     left_list.sort()
     right_list.sort()
 
-def sortlist(list):
+def sortlist(list):  ##Sort a list
     list.sort()
     return list
 
-def distances(list1, list2):
+def distances(list1, list2): #Calculate the distance between two lists.
     for i, data in enumerate(list1):
         distance = abs(data - list2[i])
         distances_list.append(distance)
-    print(sum(distances_list))
+    print('The awnser to part 1 is:',sum(distances_list))
 
-def simularity(list1, list2):
+def simularity(list1, list2): #Calculate the simularity between two lists.
     for i, data in enumerate(list1):
         list2.count(data)
         simularity_score = data * list2.count(data)
         simularity_score_list.append(simularity_score)
-        print(simularity_score)
-    print(sum(simularity_score_list))
+    print('The awnser to part 2 is:', sum(simularity_score_list))
 
 
 importfile(source)
